@@ -44,7 +44,7 @@ public protocol CacheDelegate {
      - parameter cacheKey: The cache key for this model. This is always equal to the modelIdentifier.
      - parameter context: A context you can pass in when saving to the cache.
      */
-    func setModel(_ model: SimpleModel, forKey cacheKey: String, context: Any?)
+    func setModel<T: SimpleModel>(_ model: T, forKey cacheKey: String, context: Any?)
 
     /**
      Given a cache key, you should retrieve a collection of type [T].
@@ -71,7 +71,7 @@ public protocol CacheDelegate {
      - parameter cacheKey: The cache key for this model.
      - parameter context: A context you can pass in when saving to the cache.
      */
-    func setCollection(_ collection: [SimpleModel], forKey cacheKey: String, context: Any?)
+    func setCollection<T: SimpleModel>(_ collection: [T], forKey cacheKey: String, context: Any?)
 
     /**
      Called when delete is called from the DataModelManager.
@@ -81,5 +81,5 @@ public protocol CacheDelegate {
      - parameter cacheKey: The modelIdentifier of the model.
      - parameter context: A context you can pass in when deleting.
      */
-    func deleteModel(_ model: SimpleModel, forKey cacheKey: String?, context: Any?)
+    func deleteModel<T: SimpleModel>(_ model: T, forKey cacheKey: String?, context: Any?)
 }

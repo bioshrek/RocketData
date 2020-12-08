@@ -19,7 +19,7 @@ import ConsistencyManager
  If you want to be notified of submodel changes, you should use the Model protocol.
  This protocol is useful if you don't get these types of changes or you don't care about these changes.
 */
-public protocol SimpleModel: ConsistencyManagerModel {
+public protocol SimpleModel: ConsistencyManagerModel & Codable {
 
     /**
      Should return true if this model is equal to another model. 
